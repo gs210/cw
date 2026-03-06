@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<!-- ======================================================
+     @author: Gaby Suriel
+     @course: CS120
+     @assignment: Wordle
+     @file: index.html
+
+     @description:
+     For this assignment I got an idea for making the wordle
+     military themed. The player has to guess the "code" which
+     in traditional wordle would be the word. They are given
+     attempts to "decrypt" the code before the terminal locks
+     them out. A commander on the screen gives feedback along with
+     a status bar just to really show the user how many attempts
+     they have left, and add a little bit of urgency/panic when
+     playing.
+
+     @apis:
+     The API's used are on the splash screen for weather
+     and space imagery from NASA. For the future I think I will
+     use the API to verify if a word entered is a valid word
+     (other than it being 5 letters). Overall, fun assignment and
+     I think I will develop it more post class as I have a few more
+     ideas I need to learn a bit more to implement.
+====================================================== -->
+
+<html lang="en">
+
+<head>
+
+  <!-- =================== Page Setup =================== -->
+
+  <meta charset="UTF-8">
+  <title>CODENAME WORDLE</title>
+
+
+  <!-- =================== Futuristic/Terminal Fonts =================== -->
+  <!-- Orbitron - Primary -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Rajdhani - Secondary -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- =================== Styling =================== -->
+  <!-- Link to css for styling. -->
+
+  <link rel="stylesheet" href="style.css">
+
+
+  <!-- =================== Libraries =================== -->
+  <!-- jQuery library utilized. -->
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+  <!-- =================== Game Mechanics JS =================== -->
+  <!-- JS controls the game mechanics for CODENAME WORDLE. -->
+
+  <script src="script.js"></script>
+
+</head>
+
+
+<body>
+
+  <!-- =================== Game Title =================== -->
+
+  <h1>CODENAME WORDLE</h1>
+  <p id="status">MISSION STATUS: ACTIVE</p>
+
+
+  <!-- =================== Commander Panel =================== -->
+  <!-- Will show commander portrait next to his message in the game. Starts
+   with calm face. Javascript has ... to switch face to warning and critical
+   image depending on how many tries user has left. Images avail in github as
+   agent-warning, agent-critical and agent-calm. Named after where Tufts is.
+   -->
+
+  <div id="operator-panel">
+
+    <img id="operator-face" src="agent-calm.png" alt="Commander Medford">
+
+    <div id="operator-info">
+      <div id="operator-name">COMMANDER MEDFORD</div>
+      <div id="operator-message"></div>
+    </div>
+
+  </div>
+
+  <!-- ================= Visual Alert/Status Bar =================== -->
+  <!-- Alert Bar us a visual cue to show player/user how many tries they have left. Adds urgency and is a nice
+   cue when playing. -->
+
+  <div id="alert-bar-container">
+    <div id="alert-bar"></div>
+  </div>
+
+
+  <!-- =================== Mission Brief =================== -->
+  <!-- Displays the game instructions to the player on how to play simply. -->
+
+  <div id="mission-brief">
+
+    <div class="brief-header">// MISSION BRIEF //</div>
+
+    <div class="brief-body">
+      Identify the five-letter access code word. Act quick!<br>
+      You have six attempts before the system locks out.<br><br>
+      <span class="brief-unit">UNIT: TUFTS PLATOON</span>
+    </div>
+
+  </div>
+
+  <!-- =================== Wordle Board =================== -->
+  <!-- The traditional wordle grid. -->
+
+  <div id="board"></div>
+
+
+  <!-- =================== Player Controls =================== -->
+  <!-- Input field for player to type guess. Button to submit their guesses.
+   Longest allowable length is 5 characters. -->
+
+  <div id="controls">
+
+    <input type="text" id="guess" maxlength="5">
+    <button id="submit">SUBMIT</button>
+
+  </div>
+
+
+  <!-- =================== Game Status Message =================== -->
+  <!-- Shows with message if the player has lost or won CODENAME WORDLE. -->
+
+  <p id="message"></p>
+
+
+  <!-- =================== Used Letters Display =================== -->
+  <!-- Will show the user which letters have already been used visually.
+   Added in to stimulate the traditional wordle game. -->
+
+  <div id="letters"></div>
+
+
+  <!-- =================== Restart Button =================== -->
+  <!-- Allows the player to restart the mission and play again at end if they want. -->
+
+  <button id="restart">RESTART MISSION</button>
+
+
+</body>
+</html>

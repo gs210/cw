@@ -1,0 +1,201 @@
+/* ======================================================
+   @author: Gaby Suriel
+   @course: CS120
+   @assignment: Wordle
+   @file: splash.css
+
+   @description:
+   Had the idea of adding a splash page to lead into the
+   game. This is the css/styling for that page. I think
+   it adds a little bit of depth in comparison to the OG
+   NYT Wordle. More details included on the html for it.
+====================================================== */
+
+/* ===================  Page Style =================== */
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Rajdhani', Arial, sans-serif;
+  color: #d6dde5;
+}
+
+
+/* =================== Background =================== */
+
+#bg {
+  position: fixed;
+  inset: 0;
+  background: #0b0f14;
+  background-size: cover;
+  background-position: center;
+  filter: contrast(1.1) brightness(0.9) saturate(0.8);
+  animation: slowZoom 30s ease-in-out infinite alternate;
+}
+
+
+/* =================== Overlay Layers =================== */
+/* For the terminal, the background is an image from NASA API. So to make
+it look like a terminal which is green colored. Thought of adding overlay layers
+on top to make it appear green. Just a basic CSS */
+
+#overlay-dark,
+#overlay-green {
+  position: fixed;
+  inset: 0;
+}
+
+#overlay-dark {
+  background: rgba(0,0,0,0.65);
+}
+
+#overlay-green {
+  background: rgba(0,255,136,0.18);
+}
+
+
+/* =================== Terminal Grid =================== */
+/* So I wanted the background to look like a real terminal with the green grid.
+to do that I used a vertical and horizontal linear gradient. Each is a one pixel
+green line with the rest being transparent. This makes the illusion of it being a
+grid when it is repeated every fourty pixels. Pretty fun to add in. */
+
+#grid {
+  position: fixed;
+  inset: 0;
+  background:
+    /* Horizontal */
+    linear-gradient(rgba(0,255,136,0.04) 1px, transparent 1px),
+    /* Vertical */
+    linear-gradient(90deg, rgba(0,255,136,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+
+/* =================== Splash Layout =================== */
+
+#splash {
+  position: relative;
+  z-index: 5;
+  height: 100vh;
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+/* =================== Top Info Panels =================== */
+/* Styles for the small terminal-style info panels shown at the top */
+#top-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.panel {
+  border: 1px solid rgba(0,255,136,0.4);
+  background: rgba(15,20,26,0.85);
+  padding: 10px 14px;
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+}
+
+.panel.right {
+  text-align: right;
+}
+
+.label {
+  color: #7a8694;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  margin-bottom: 6px;
+}
+
+
+/* =================== Center Splash =================== */
+
+#center {
+  text-align: center;
+}
+
+#signal-label {
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  color: #7a8694;
+  margin-bottom: 12px;
+}
+
+#signal-title {
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 36px;
+  letter-spacing: 0.4em;
+  color: #00ff88;
+  text-shadow: 0 0 25px rgba(0,255,136,0.5);
+}
+
+#signal-sub {
+  margin-top: 14px;
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: #ffb703;
+  min-height: 18px;
+}
+
+
+/* =================== Terminal Typing Cursor =================== */
+/* I wanted the message to feel like it was being typed out in a terminal.
+To do this I used a typing animation with a blinking cursor so the text appears
+gradually. Used the W3 CSS tutorial for CSS animations to learn:
+https://www.w3schools.com/css/css3_animations.asp */
+
+.cursor {
+  display: inline-block;
+  width: 10px;
+  height: 14px;
+  background: #ffb703;
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+/* =================== CTA =================== */
+/* CTA styling for the button to enter the game and leave splash. */
+
+#cta {
+  text-align: center;
+  margin-bottom: 120px;
+}
+
+#intercept-btn {
+  background: transparent;
+  border: 1px solid #00ff88;
+  color: #00ff88;
+  font-family: 'Orbitron', Arial, sans-serif;
+  letter-spacing: 0.35em;
+  padding: 14px 36px;
+  cursor: pointer;
+}
+
+#intercept-btn:hover {
+  background: #00ff88;
+  color: #0b0f14;
+}
+
+#cta-sub {
+  margin-top: 8px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: #7a8694;
+}

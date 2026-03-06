@@ -1,0 +1,266 @@
+/* ======================================================
+   @author: Gaby Suriel
+   @course: CS120
+   @assignment: Wordle
+   @file: style.css
+
+   @description:
+   Styling info for the main page of my army themed
+   wordle game. The overall style I came up with was to
+   stimulate a command terminal. I wanted to make the wordle
+   feel like a immersive game with a little bit of added
+   lore. The css allows for themed instructions, status bar,
+   traditional wordle board and a "commander" to give feedback
+   during the game.
+
+   Longer explanations/comments for each part is in the html files.
+====================================================== */
+
+/* =================== Primary Style =================== */
+
+* {
+  box-sizing: border-box;
+}
+
+/* Linar gradients used to make the grid. Two one pixel linear gradients, one vertical
+one horizontal to emulate a terminal grid. */
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(rgba(0,255,136,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,136,0.035) 1px, transparent 1px),
+    #0b0f14;
+  background-size: 40px 40px;
+  color: #d6dde5;
+  font-family: 'Rajdhani', Arial, sans-serif;
+  text-align: center;
+}
+
+
+/* =================== Header =================== */
+
+h1 {
+  font-family: 'Orbitron', Arial, sans-serif;
+  letter-spacing: 0.4em;
+  margin-top: 40px;
+}
+
+#status {
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: #7a8694;
+  margin-top: 6px;
+}
+
+
+/* =================== Commander Panel =================== */
+/* Panel showing the mission's commander who provides feedback
+to the player during the game */
+
+#operator-panel {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 20px auto;
+  padding: 12px 16px;
+  width: fit-content;
+  background: rgba(15,20,26,0.95);
+  border: 1px solid rgba(17, 95, 14, 0.25);
+}
+
+#operator-face {
+  width: 64px;
+  height: 64px;
+  border: 1px solid rgba(0,255,136,0.6);
+  background: #0f141a;
+  filter: grayscale(100%) brightness(1.2);
+}
+
+#operator-name {
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  color: #00ff88;
+}
+
+#operator-message {
+  font-size: 13px;
+  line-height: 1.4;
+  margin-top: 4px;
+  max-width: 340px;
+}
+
+
+/* =================== Alert Bar =================== */
+/* Visual progress bar that changes as guesses decrease, so user knows remaining attempts. */
+#alert-bar-container {
+  width: 320px;
+  height: 10px;
+  margin: 12px auto 24px;
+  border: 1px solid rgba(0,255,136,0.6);
+  background: #0f141a;
+}
+
+#alert-bar {
+  height: 100%;
+  width: 100%;
+  background: #00ff88;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+
+/* =================== Mission Brief =================== */
+/* Displays the mission instructions and context for the game. */
+
+#mission-brief {
+  max-width: 520px;
+  margin: 20px auto;
+  padding: 14px 18px;
+  background: rgba(15,20,26,0.95);
+  border: 1px solid rgba(255,255,255,0.25);
+  text-align: left;
+}
+
+.brief-header {
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  color: #00ff88;
+  margin-bottom: 10px;
+}
+
+.brief-body {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.brief-unit {
+  color: #ffb703;
+  letter-spacing: 0.15em;
+}
+
+
+/* =================== Wordle Board =================== */
+/* Grid layout used to display the Wordle tiles where the player's word guesses show up. */
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(5, 60px);
+  gap: 10px;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+.tile {
+  width: 60px;
+  height: 60px;
+  background: #0f141a;
+  border: 1px solid rgba(255,255,255,0.2);
+  line-height: 60px;
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+
+/* =================== Different Tile States =================== */
+/* Color states applied to tiles after a guess to indicate correct letters,
+present or already used letters/tiles. */
+.correct {
+  background: rgba(0,255,136,0.2);
+  border-color: #00ff88;
+}
+
+.present {
+  background: rgba(255,183,3,0.25);
+  border-color: #ffb703;
+}
+
+.absent {
+  background: #1c2128;
+  color: #6b7280;
+}
+
+
+/* =================== Controls =================== */
+/* Place for user to type/submit guess and enter it with button. */
+
+#controls {
+  margin-top: 25px;
+}
+
+#guess {
+  background: #0f141a;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #d6dde5;
+  padding: 8px 10px;
+  text-align: center;
+  letter-spacing: 0.25em;
+  font-family: 'Orbitron', Arial, sans-serif;
+}
+
+#submit {
+  margin-left: 10px;
+  padding: 8px 18px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #d6dde5;
+  font-family: 'Orbitron', Arial, sans-serif;
+  letter-spacing: 0.25em;
+  cursor: pointer;
+}
+
+#submit:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+
+/* =================== Used Letters =================== */
+
+#letters {
+  display: grid;
+  grid-template-columns: repeat(13, 30px);
+  gap: 6px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.letter {
+  background: #0f141a;
+  border: 1px solid rgba(255,255,255,0.2);
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 13px;
+  line-height: 30px;
+}
+
+
+/* =================== Message / Status =================== */
+/* To show game feedback to the user like win and lose messages. */
+
+#message {
+  margin-top: 16px;
+  font-family: 'Orbitron', Arial, sans-serif;
+  letter-spacing: 0.2em;
+}
+
+/* =================== Restart Button =================== */
+/* Button that appears after the game ends. Will let the player play again. */
+
+#restart {
+  display: none;
+  margin-top: 30px;
+  padding: 10px 22px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #d6dde5;
+  font-family: 'Orbitron', Arial, sans-serif;
+  letter-spacing: 0.25em;
+  cursor: pointer;
+}
+
+#restart:hover {
+  background: rgba(255,255,255,0.08);
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Incoming Transmission</title>
+
+
+  <!-- =================== Futuristic/Terminal Fonts =================== -->
+  <!-- Orbitron - Primary -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Rajdhani - Secondary -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- =================== Styling =================== -->
+  <link rel="stylesheet" href="splash.css">
+
+  <!-- =================== JQuery + JS =================== -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="splash.js" defer></script>
+</head>
+
+<body>
+
+  <!-- Background -->
+  <div id="bg"></div>
+  <div id="overlay-dark"></div>
+  <div id="overlay-green"></div>
+  <div id="grid"></div>
+
+  <!-- Splash -->
+  <div id="splash">
+
+    <!-- Info on Top of Terminal -->
+    <div id="top-info">
+      <div class="panel">
+        <div class="label">// ENVIRONMENT //</div>
+        <div>TEMP: <span id="wx-temp">--°F</span></div>
+        <div>COND: <span id="wx-cond">---</span></div>
+      </div>
+
+      <div class="panel right">
+        <div class="label">// SATELLITE FEED //</div>
+        <div id="feed-source">NASA ORBITAL IMAGERY</div>
+      </div>
+    </div>
+
+    <!-- Center -->
+    <div id="center">
+      <div id="signal-label">— INCOMING TRANSMISSION —</div>
+      <div id="signal-title">TRANSMISSION</div>
+
+      <div id="signal-sub">
+        <span id="typed-text"></span><span class="cursor"></span>
+      </div>
+    </div>
+
+    <!-- CTA Button - Enter Game -->
+    <div id="cta">
+      <button id="intercept-btn">INTERCEPT TRANSMISSION</button>
+      <div id="cta-sub">CLICK TO BEGIN DECRYPTION</div>
+    </div>
+
+  </div>
+
+</body>
+</html>
