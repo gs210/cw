@@ -66,6 +66,7 @@ $.getJSON("words.json", function (data) {
 
 /* =================== Start Mission =================== */
 /* Initializes new game and makes fields empty. Preps board. Commander starts calm. */
+/* Resubmitted to add in fix to kill bug where status line did not go back to being green from red after game reset. */
 
 function startGame() {
 
@@ -81,6 +82,7 @@ function startGame() {
   $("#letters").empty();
   $("#message").text("");
   $("#restart").hide();
+  $("#alert-bar").css("background", "#00ff88");
 
   /* Added lore in to fit theme, make dramatic. */
   $("#operator-face").attr("src", "agent-calm.png");
@@ -215,7 +217,7 @@ function checkGuess(guess) {
   }
   else if (mission.attemptNumber === mission.maxAttempts) {
 
-    $("#message").text("MISSION FAILED");
+    $("#message").text("MISSION FAILED - CODE WAS: " + answer);
 
     $("#operator-message").text(
       "Lockout confirmed. The enemy has advanced into our territory., " + agentName + "."
